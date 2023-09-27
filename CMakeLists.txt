@@ -40,7 +40,9 @@ else(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
 endif(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
 
 if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+    add_cxx_compiler_flag("-mno-avx2")
     add_compile_options(-mno-avx2)
+    add_compile_options("-mno-avx2")    
 endif()
   
 check_cxx_source_compiles("
