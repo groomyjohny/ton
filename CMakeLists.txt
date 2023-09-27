@@ -38,6 +38,11 @@ if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
 else(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
   set(CMAKE_REQUIRED_FLAGS "${CMAKE_REQUIRED_FLAGS} -msse4.2")
 endif(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+
+if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+    add_compile_options(-mno-avx2)
+endif()
+  
 check_cxx_source_compiles("
 #if defined(_MSC_VER)
 #include <intrin.h>
