@@ -38,12 +38,6 @@ if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
 else(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
   set(CMAKE_REQUIRED_FLAGS "${CMAKE_REQUIRED_FLAGS} -msse4.2")
 endif(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
-
-if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-    add_cxx_compiler_flag("-mno-avx2")
-    add_compile_options(-mno-avx2)
-    add_compile_options("-mno-avx2")    
-endif()
   
 check_cxx_source_compiles("
 #if defined(_MSC_VER)
@@ -312,6 +306,7 @@ add_cxx_compiler_flag("-Qunused-arguments")
 add_cxx_compiler_flag("-Wno-unused-private-field")
 add_cxx_compiler_flag("-Wno-redundant-move")
 #add_cxx_compiler_flag("-Werror")
+add_cxx_compiler_flag("-mno-avx2")
 
 #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -isystem /usr/include/c++/v1")
 if (CLANG)
