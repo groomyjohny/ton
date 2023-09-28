@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2 FATAL_ERROR)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mno-avx2")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mno-avx -mno-avx2 -mno-avx512f")
 set(CMAKE_BUILD_TYPE Debug)
 
 project(TON VERSION 0.5 LANGUAGES C CXX)
