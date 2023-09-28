@@ -1,8 +1,6 @@
 cmake_minimum_required(VERSION 3.0.2 FATAL_ERROR)
 
-include(AddCXXCompilerFlag)
-add_cxx_compiler_flag("-march=nehalem")
-add_cxx_compiler_flag("-mno-avx2")
+
 
 project(TON VERSION 0.5 LANGUAGES C CXX)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
@@ -283,6 +281,8 @@ set(TONLIB_COMPILE "0")
   set(TONLIB_COMPILE "1")
 #END tonlib
 
+include(AddCXXCompilerFlag)
+add_cxx_compiler_flag("-mno-avx2")
 
 if (MSVC)
   add_cxx_compiler_flag("/experimental:external /external:anglebrackets /external:W0")
@@ -310,6 +310,7 @@ add_cxx_compiler_flag("-Qunused-arguments")
 add_cxx_compiler_flag("-Wno-unused-private-field")
 add_cxx_compiler_flag("-Wno-redundant-move")
 #add_cxx_compiler_flag("-Werror")
+#add_cxx_compiler_flag("-march=nehalem")
 
 
 #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -isystem /usr/include/c++/v1")
