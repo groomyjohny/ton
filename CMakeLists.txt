@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2 FATAL_ERROR)
-
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mno-avx2")
 
 
 project(TON VERSION 0.5 LANGUAGES C CXX)
@@ -282,7 +282,7 @@ set(TONLIB_COMPILE "0")
 #END tonlib
 
 include(AddCXXCompilerFlag)
-add_cxx_compiler_flag("-mno-avx2")
+#add_cxx_compiler_flag("-mno-avx2")
 
 if (MSVC)
   add_cxx_compiler_flag("/experimental:external /external:anglebrackets /external:W0")
